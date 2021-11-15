@@ -70,7 +70,6 @@ const getToken = async (code) => {
     return result.data.events;
   }
 };
-};
 
  export const extractLocations = (events) => {
     var extractLocations = events.map((event) => event.location);
