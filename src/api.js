@@ -59,7 +59,7 @@ const getToken = async (code) => {
 
   if (token) {
     removeQuery();
-    const url = 'https://b0vy91f8hf.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/' + '/' + token;
+    const url = 'https://b0vy91f8hf.execute-api.eu-central-1.amazonaws.com/dev/api/get-events' + '/' + token;
     const result = await axios.get(url);
     if (result.data) {
       var locations = extractLocations(result.data.events);
