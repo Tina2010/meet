@@ -16,6 +16,7 @@ class NumberOfEvents extends Component {
     render() {
         return (
           <div className="numberOfEvents">
+            <p style={{"paddingRight":"5px"}}>Number of Events:</p>
             <input 
                 type="number"
                 className="amountEventsOnePage"

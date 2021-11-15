@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 import Event from './Event';
 
@@ -6,13 +7,10 @@ class EventList extends Component {
     render() {
         const { events } = this.props;
         return (
-          <ul className="EventList">
-            {events.map(event =>
-                <li key={event.id}>
-                    <Event event={event} />
-                </li>
+          <ListGroup className="EventList">{events.map(event =>
+            <ListGroup.Item key={event.id}><Event event={event} /></ListGroup.Item>
             )}
-          </ul>
+          </ListGroup>
         );
       }
 }

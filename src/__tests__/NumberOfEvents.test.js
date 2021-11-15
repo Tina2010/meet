@@ -21,4 +21,4 @@ describe('<NumberOfEvents /> component', () => {
     expect(NumberOfEventsWrapper.state('manualAmountEvents')).toBe(1);
   });
 
-});
+}); 
