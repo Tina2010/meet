@@ -10,8 +10,8 @@ class EventList extends Component {
         return (
         <Row>
             <Col>       
-              <ListGroup className="EventList">{events.map(event =>
-                <ListGroup.Item xs={1} sm={2} md={2} lg={1} key={event.id}><Event event={event} /></ListGroup.Item>
+              <ListGroup xs={1} sm={2} md={2} lg={1} className="EventList">{events.map(event =>
+                <ListGroup.Item  key={event.id}><Event event={event} /></ListGroup.Item>
                 )}
               </ListGroup>          
             </Col>

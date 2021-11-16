@@ -33,7 +33,7 @@ class Event extends Component {
           </Card.Text>
           <Button variant="success" className="detailsButton" onClick={this.showDetails}>{(this.state.detailsShown ? "Hide Details" : "See Details")}
           </Button>
-          <div xs={1} sm={2} md={2} lg={1} className={"eventDetails" + (this.state.detailsShown ? " active" : " inactive")}>
+          <div className={"eventDetails" + (this.state.detailsShown ? " active" : " inactive")}>
             <Card.Subtitle className="mt-3 mb-2 text-muted">Description</Card.Subtitle>
             <Card.Text  className="description">{event.description}</Card.Text>
           </div>
