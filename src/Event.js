@@ -23,19 +23,19 @@ class Event extends Component {
       const { event } = this.props;
 
       return (
-        <Card className="Event">
+        <Card className="Event" style={{margin: '5px'}}>
         <Card.Body>
           <Card.Title className="summary">{event.summary}</Card.Title>
           <Card.Text className="location"><MdOutlinePlace /> {event.location}</Card.Text>
           <Card.Text className="startDatetime"><FaRegCalendarAlt />
           <Moment format=" DD.MM.YYYY HH:MM ">{event.start.dateTime}</Moment>o'Clock 
-          <span className="mt-3 mb-2 text-muted"> (TZ: {event.start.timeZone}) </span>
           </Card.Text>
+          <Card.Text className="mb-4 text-muted">TZ: {event.start.timeZone}</Card.Text>
           <Button variant="success" className="detailsButton" onClick={this.showDetails}>{(this.state.detailsShown ? "Hide Details" : "See Details")}
           </Button>
           <div className={"eventDetails" + (this.state.detailsShown ? " active" : " inactive")}>
             <Card.Subtitle className="mt-3 mb-2 text-muted">Description</Card.Subtitle>
-            <Card.Text  className="description">{event.description}</Card.Text>
+            <Card.Text className="description">{event.description}</Card.Text>
           </div>
         </Card.Body>
       </Card>

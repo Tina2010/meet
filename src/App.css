@@ -20,11 +20,10 @@ input {
     border-radius: 5px;
 }
 
-.card-body {
-    max-width: 400px;
-}
-
-.btn-success {
+.btn-success,
+.btn-success:active,
+.btn-success:focus
+{
     color: #fff;
     background-color: #145c5c;
     border-color: #145c5c;
