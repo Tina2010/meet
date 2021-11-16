@@ -35,19 +35,21 @@ class CitySearch extends Component {
                 value={this.state.query}
                 onChange={this.handleInputChanged}
                 onFocus={() => { this.setState({ showSuggestions: true }) }}
+                placeholder="Enter a city"
             />
             <ul className="suggestions" style={this.state.showSuggestions ? {}: { display: 'none' }}>
               {this.state.suggestions.map((suggestion) => (
                 <li style={{"display":"block"}}
                   key={suggestion}
                   onClick={() => this.handleItemClicked(suggestion)}
+                  onBlur={() => { this.setState({ showSuggestions: false }) }}
                 >{suggestion}</li>
               ))}
               <li onClick={() => this.handleItemClicked("all")}>
                 <b>See all cities</b>
               </li>
             </ul>
-          </div>
+          </div>       
         );
       }
 }

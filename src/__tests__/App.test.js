@@ -27,7 +27,7 @@ describe('<App /> component', () => {
     });
   });
 
-// integration tests
+//----FEATURE: Eventlist => integration tests
 describe('<App /> integration', () => {
   test('App passes "events" state as a prop to EventList', () => {
     const AppWrapper = mount(<App />);
@@ -36,6 +36,8 @@ describe('<App /> integration', () => {
     expect(AppWrapper.find(EventList).props().events).toEqual(AppEventsState);
     AppWrapper.unmount();
   });
+
+//----FEATURE: CitySearch => integration tests
 
   test('App passes "locations" state as a prop to CitySearch', () => {
     const AppWrapper = mount(<App />);
@@ -68,4 +70,22 @@ describe('<App /> integration', () => {
     expect(AppWrapper.state('events')).toEqual(allEvents);
     AppWrapper.unmount();
   });
-});
+
+//----FEATURE: NumberOfEvents => integration tests
+
+  test('App passes "numberOfEvents" state as a prop to NumberOfEvents', () => {
+    const AppWrapper = mount(<App />);
+    const AppNumberOfEventsState = AppWrapper.state('numberOfEvents');
+    expect(AppNumberOfEventsState).not.toEqual(undefined);
+    expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toEqual(32);
+    AppWrapper.unmount();
+  });
+
+  test('get list of events matching the amount selected by the user', async () => {
+    const AppWrapper = mount(<App />);
+    AppWrapper.find('.amountEventsOnePage').at(0).simulate('change', { target: { value: 12 } });
+    expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toEqual(12);
+    AppWrapper.unmount();
+  });
+
+}); 

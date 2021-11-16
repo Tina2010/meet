@@ -2,26 +2,31 @@ import React, { Component } from 'react';
 
 class NumberOfEvents extends Component {
     state = {
-        query: '',
-        manualAmountEvents: 2
+      numberOfEvents: 32
       }
 
-    toggleAmountOfEvents = (events) => {
-        const value = events.target.value;
-        this.setState({
-          manualAmountEvents : value
+      toggleAmountOfEvents = (event) => {
+        const number = event.target.value;
+        if (number > -1 && number < 33) {
+        this.setState({ 
+          numberOfEvents: number,
         });
+        this.props.updateEventCount(event.target.value);
+        } else {
+          alert('Please enter a number between 0 and 32!')
+        }
       };
+
 
     render() {
         return (
-          <div className="numberOfEvents">
+          <div className="numberOfEvents" style={{marginBottom: '20px'}}>
             <p style={{"paddingRight":"5px"}}>Number of Events:</p>
             <input 
                 type="number"
                 className="amountEventsOnePage"
-                value={this.state.manualAmountEvents}
-                onChange={this.toggleAmountOfEvents}
+                value={this.state.numberOfEvents}
+                onChange={(e) => this.toggleAmountOfEvents(e)}
             />
           </div>
         );

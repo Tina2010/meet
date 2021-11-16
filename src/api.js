@@ -1,6 +1,6 @@
 import axios from 'axios';
 import NProgress from 'nprogress';
-
+ import { mockData } from './mock-data';
 
 /**
  * @param {*} events:
@@ -9,7 +9,32 @@ import NProgress from 'nprogress';
  * The Set will remove all duplicates from the array.
  */
 
- import { mockData } from './mock-data';
+ export const getEvents = async () => {
+  NProgress.start();
+  if (window.location.href.startsWith('http://localhost')) {
+   return mockData;
+  }
+  const token = await getAccessToken();
+
+  if (token) {
+    removeQuery();
+    const url = 'https://b0vy91f8hf.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/' + token;
+    const result = await axios.get(url);
+    if (result.data) {
+      var locations = extractLocations(result.data.events);
+      localStorage.setItem("lastEvents", JSON.stringify(result.data));
+      localStorage.setItem("locations", JSON.stringify(locations));
+    }
+    NProgress.done();
+    return result.data.events;
+  }
+};
+
+ export const extractLocations = (events) => {
+    var extractLocations = events.map((event) => event.location);
+    var locations = [...new Set(extractLocations)];
+    return locations;
+  };
 
  const checkToken = async (accessToken) => {
   const result = await fetch(
@@ -38,7 +63,7 @@ const removeQuery = () => {
 const getToken = async (code) => {
   const encodeCode = encodeURIComponent(code);
   const { access_token } = await fetch(
-    'https://b0vy91f8hf.execute-api.eu-central-1.amazonaws.com/dev/api/token' + '/' + encodeCode
+    'https://b0vy91f8hf.execute-api.eu-central-1.amazonaws.com/dev/api/token/' + encodeCode
   )
     .then((res) => {
       return res.json();
@@ -49,33 +74,6 @@ const getToken = async (code) => {
 
   return access_token;
 }
-
- export const getEvents = async () => {
-  NProgress.start();
-  if (window.location.href.startsWith('http://localhost')) {
-   return mockData;
-  }
-  const token = await getAccessToken();
-
-  if (token) {
-    removeQuery();
-    const url = 'https://b0vy91f8hf.execute-api.eu-central-1.amazonaws.com/dev/api/get-events' + '/' + token;
-    const result = await axios.get(url);
-    if (result.data) {
-      var locations = extractLocations(result.data.events);
-      localStorage.setItem("lastEvents", JSON.stringify(result.data));
-      localStorage.setItem("locations", JSON.stringify(locations));
-    }
-    NProgress.done();
-    return result.data.events;
-  }
-};
-
- export const extractLocations = (events) => {
-    var extractLocations = events.map((event) => event.location);
-    var locations = [...new Set(extractLocations)];
-    return locations;
-  };
 
   export const getAccessToken = async () => {
     const accessToken = localStorage.getItem('access_token');

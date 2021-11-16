@@ -21,10 +21,6 @@ describe('<Event /> component', () => {
     test('render startDatetime', () => {
       expect(EventWrapper.find('.startDatetime')).toHaveLength(1);
     });
-  
-    test('render startTimezone', () => {
-      expect(EventWrapper.find('.startTimezone')).toHaveLength(1);
-    });
 
     test('render description', () => {
       expect(EventWrapper.find('.description')).toHaveLength(1);
