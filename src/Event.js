@@ -23,7 +23,7 @@ class Event extends Component {
       const { event } = this.props;
 
       return (
-        <Card className="Event" style={{margin: '5px'}}>
+        <Card className="eventCard" style={{margin: '5px'}}>
         <Card.Body>
           <Card.Title className="summary">{event.summary}</Card.Title>
           <Card.Text className="location"><MdOutlinePlace /> {event.location}</Card.Text>

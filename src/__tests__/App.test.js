@@ -83,8 +83,8 @@ describe('<App /> integration', () => {
 
   test('get list of events matching the amount selected by the user', async () => {
     const AppWrapper = mount(<App />);
-    AppWrapper.find('.amountEventsOnePage').at(0).simulate('change', { target: { value: 12 } });
-    expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toEqual(12);
+    AppWrapper.find('.amountEventsOnePage').at(0).simulate('change', { target: { value: 11 } });
+    expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toEqual(11);
     AppWrapper.unmount();
   });
 
