@@ -1,13 +1,13 @@
 import puppeteer from 'puppeteer';
 
-/* describe('show/hide an event details', () => {
+describe('show/hide an event details', () => {
     let browser;
     let page;
     jest.setTimeout(900 * 1000);
   
     beforeAll(async () => {
       browser = await puppeteer.launch({
-        headless: true,
+        headless: false,
         slowMo: 250, // slow down by 250ms
        ignoreDefaultArgs: ['--disable-extensions'] // ignores default setting that causes timeout errors
       }); //only add headless mode after the entire test-file ran succesfully
@@ -36,7 +36,7 @@ import puppeteer from 'puppeteer';
     const eventDetails = await page.$('.eventCard .eventDetails.active');
     expect(eventDetails).toBeNull();
   });
-}); */
+});
 
 describe('Filter events by city', () => {
     let browser;
@@ -45,7 +45,7 @@ describe('Filter events by city', () => {
   
     beforeAll(async () => {
       browser = await puppeteer.launch({
-        headless: true,
+        headless: false,
         slowMo: 250, // slow down by 250ms
        ignoreDefaultArgs: ['--disable-extensions'] // ignores default setting that causes timeout errors
       }); //only add headless mode after the entire test-file ran succesfully
@@ -68,6 +68,7 @@ describe('Filter events by city', () => {
     });
 
     test('User can select a city from the suggested list.', async () => {
+        await page.evaluate( () => document.querySelector(".city").value = "");
         await page.type('.city', 'Berlin');
         await page.click('.suggestions', 'Berlin, Germany');
         await page.evaluate(
