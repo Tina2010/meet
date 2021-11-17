@@ -1,6 +1,11 @@
 body, .list-group-item {
     background-color: cadetblue;
+    display: grid;
+    justify-items: center;
     color:black;
+    box-sizing: border-box;
+    border-left: 50px solid #214b4c;
+    border-right: 50px solid #214b4c;
 }
 
 .list-group-item {
@@ -35,10 +40,20 @@ input {
     border-color: #348888;
 }
 
-.CitySearch, .numberOfEvents {
+.CitySearch {
     display: grid;
     justify-content: center;
     padding: 10px;
+}
+
+.numberOfEvents {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+input.amountEventsOnePage {
+    max-width: 40px;
 }
 
 .CitySearch li {
@@ -51,4 +66,18 @@ input {
 
 .numberOfEvents p {
     margin: 0;
+}
+
+@media screen and (min-width:0px) and (max-width:270px) {
+    body {
+        border-left: 2px solid #214b4c;
+        border-right: 2px solid #214b4c;
+    }
+}
+
+@media screen and (min-width:270px) and (max-width:450px) {
+    body {
+        border-left: 10px solid #214b4c;
+        border-right: 10px solid #214b4c;
+    }
 }

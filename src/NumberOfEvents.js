@@ -21,7 +21,7 @@ class NumberOfEvents extends Component {
     render() {
         return (
           <div className="numberOfEvents" style={{marginBottom: '20px'}}>
-            <p style={{"paddingRight":"5px"}}>Number of Events:</p>
+            <span style={{"paddingRight":"5px"}}>Select a number: </span>
             <input 
                 type="number"
                 className="amountEventsOnePage"
