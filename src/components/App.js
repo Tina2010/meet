@@ -6,6 +6,7 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations } from '../api';
+import { ModalFooter } from 'react-bootstrap';
 
 class App extends Component {
   state = {
@@ -58,6 +59,10 @@ class App extends Component {
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEventCount={this.updateEventCount}/>
         <EventList events={this.state.events}/>
+        <ModalFooter className="mt-5" style={{justifyContent: 'center'}}>
+          <p style={{color: 'white'}}>Feel free to visit my Portfolio:</p>
+          <a href="https://portfolio-tr.000webhostapp.com/" style={{textDecoration: 'none'}}>portfolio-tr.000webhostapp.com</a>
+          </ModalFooter>
       </div>
     );
  }

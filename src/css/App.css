@@ -1,11 +1,17 @@
+html {
+    height: -webkit-fill-available;     
+}
+
 body, .list-group-item {
-    background-color: cadetblue;
+    border-left: 50px solid #214b4c;
+    border-right: 50px solid #214b4c; 
     display: grid;
     justify-items: center;
     color:black;
     box-sizing: border-box;
-    border-left: 50px solid #214b4c;
-    border-right: 50px solid #214b4c;
+    background-color: cadetblue;
+    height: auto;
+    min-height: 100%;    
 }
 
 .list-group-item {
@@ -62,6 +68,7 @@ input.amountEventsOnePage {
 
 .numberOfEvents {
     align-items: baseline;
+    text-align-last: right;
 }
 
 .numberOfEvents p {
