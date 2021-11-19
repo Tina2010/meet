@@ -2,7 +2,7 @@ import { loadFeature, defineFeature } from 'jest-cucumber';
 
 import React from 'react';
 import { mount } from 'enzyme';
-import App from '../App';
+import App from '../components/App';
 import { mockData } from '../mock-data';
 
 const feature = loadFeature('./src/features/showHideAnEventsDetails.feature'); //loadFeature() expects the file path to start from the root of the project

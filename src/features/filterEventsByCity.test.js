@@ -3,8 +3,8 @@ import { loadFeature, defineFeature } from 'jest-cucumber';
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { extractLocations } from '../api';
-import CitySearch from '../CitySearch';
-import App from '../App';
+import CitySearch from '../components/CitySearch';
+import App from '../components/App';
 import { mockData } from '../mock-data';
 
 const feature = loadFeature('./src/features/filterEventsByCity.feature'); //loadFeature() expects the file path to start from the root of the project

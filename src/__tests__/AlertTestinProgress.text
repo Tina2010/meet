@@ -1,0 +1,20 @@
+//I will publish this file as a test.js after it is finished
+
+import React from 'react';
+import { shallow } from 'enzyme';
+import Alert from '../components/Alert'; // always import the component that is tested in your .test.js file
+
+// unit tests
+describe('<Alert /> component', () => {
+    let AlertWrapper;
+    beforeAll(() => {
+        AlertWrapper = shallow(<Alert />);
+    });
+  
+    test('render alert', () => {
+      const eventObject = { target: { value: 'Beeerlin' }};
+      AlertWrapper.find('.city').simulate('change', eventObject);
+      expect(AlertWrapper.find('.Alert')).toHaveLength(1);
+    });
+
+}); 
