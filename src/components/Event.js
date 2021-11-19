@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import { MdOutlinePlace } from 'react-icons/md';
 
-import './Event.css';
+import '../css/Event.css';
 import Moment from "react-moment";
 
 class Event extends Component {
