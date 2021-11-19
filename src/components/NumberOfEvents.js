@@ -7,13 +7,14 @@ class NumberOfEvents extends Component {
 
       toggleAmountOfEvents = (event) => {
         const number = event.target.value;
-        if (number > -1 && number < 33) {
+        if (number > 0 && number < 33) {
         this.setState({ 
           numberOfEvents: number,
         });
         this.props.updateEventCount(event.target.value);
         } else {
-          alert('Please enter a number between 0 and 32!')
+          alert('Please enter a number between 0 and 32!');
+          this.props.updateEventCount(32);
         }
       };
 
