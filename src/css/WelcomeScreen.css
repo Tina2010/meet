@@ -1,10 +1,10 @@
-body {
-    display: contents;
-    text-align-last: center;
+* {
+    width: 100%;
 }
 
 h1 {
-    margin: 50px;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 h4 {
@@ -18,10 +18,9 @@ b {
 
 .WelcomeScreen {
     position: fixed;
-    width: 100%;
-    height: 100%;
     top: 0;
     background: cadetblue;
+    border-right: 100px solid #214b4c;
 }
 
 .login-button {
