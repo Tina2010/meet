@@ -15,6 +15,13 @@ import NProgress from 'nprogress';
     NProgress.done();
     return mockData;
   }
+
+  if (!navigator.onLine) {
+    const data = localStorage.getItem("lastEvents");
+    NProgress.done();
+    return data?JSON.parse(data).events:[];;
+  }
+
   const token = await getAccessToken();
 
   if (token) {
@@ -29,6 +36,8 @@ import NProgress from 'nprogress';
     NProgress.done();
     return result.data.events;
   }
+
+  
 };
 
  export const extractLocations = (events) => {
