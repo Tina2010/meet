@@ -25,12 +25,14 @@ class Event extends Component {
       return (
         <Card className="eventCard" style={{margin: '5px'}}>
         <Card.Body>
+          <div className="visibleCardContent">
           <Card.Title className="summary">{event.summary}</Card.Title>
           <Card.Text className="location"><MdOutlinePlace /> {event.location}</Card.Text>
           <Card.Text className="startDatetime"><FaRegCalendarAlt />
           <Moment format=" DD.MM.YYYY HH:MM ">{event.start.dateTime}</Moment>o'Clock 
           </Card.Text>
           <Card.Text className="mb-4 text-muted">TZ: {event.start.timeZone}</Card.Text>
+          </div>
           <Button variant="success" className="detailsButton" onClick={this.showDetails}>{(this.state.detailsShown ? "Hide Details" : "See Details")}
           </Button>
           <div className={"eventDetails" + (this.state.detailsShown ? " active" : " inactive")}>

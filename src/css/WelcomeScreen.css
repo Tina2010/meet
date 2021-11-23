@@ -16,7 +16,9 @@ b {
     position: fixed;
     top: 0;
     background: cadetblue;
-    border-right: 100px solid #214b4c;
+    left: 0;
+    width: 100%;
+    text-align: center;
 }
 
 .login-button {

@@ -1,17 +1,12 @@
-html {
-    height: -webkit-fill-available;     
+body {
+    background-color: cadetblue;
 }
 
-body, .list-group-item {
-    border-left: 50px solid #214b4c;
-    border-right: 50px solid #214b4c; 
+.App {
     display: grid;
     justify-items: center;
     color:black;
     box-sizing: border-box;
-    background-color: cadetblue;
-    height: auto;
-    min-height: 100%;    
 }
 
 .list-group-item {
@@ -50,23 +45,6 @@ input {
     align-self: center;
 }
 
-.CitySearch {
-    display: flex;
-    flex-direction: column;
-    flex-basis: 300px;
-    max-width: 250px;
-    margin: auto;
-    position: relative;
-  }
-
-.numberOfEvents {
-    padding: 10px;
-}
-
-.numberOfEvents p {
-    margin: 0;
-}
-
 input.amountEventsOnePage {
     max-width: 40px;
 }
@@ -101,15 +79,9 @@ input.amountEventsOnePage {
   }
 
 @media screen and (min-width:0px) and (max-width:270px) {
-    body {
-        border-left: 2px solid #214b4c;
-        border-right: 2px solid #214b4c;
-    }
+
 }
 
 @media screen and (min-width:270px) and (max-width:450px) {
-    body {
-        border-left: 10px solid #214b4c;
-        border-right: 10px solid #214b4c;
-    }
+
 }

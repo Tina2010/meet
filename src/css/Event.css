@@ -7,30 +7,23 @@
   max-width: fit-content;
 }
 
-.EventList {
-  display: grid;
-}
-
 .card {
   max-width: 450px;
 }
 
 .card-body {
-  min-height: 260px;
+  min-height: 248px;
+  position: relative;
 }
 
-.EventList {
-  width: 50%;
-  margin-left: 25%;
+.visibleCardContent {
+  min-height: 100px;
 }
 
 @media screen and (min-width:0px) and (max-width:450px) {
   .card-title {
     font-size: 15px;
     max-width: 200px;
-  }
-  .EventList {
-    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -39,10 +32,9 @@
     font-size:1rem;
     max-width: 200px;
   }
-  .EventList {
-    grid-template-columns: repeat(2, 1fr );
-    width: auto;
-    margin: 0;
+
+  .card-body {
+    min-height: 290px;
   }
 }
 
@@ -51,7 +43,5 @@
     font-size:1.25rem;
     max-width: 300px;
   }
-  .EventList {
-    grid-template-columns: repeat(2, 1fr );
-  }
+
 }

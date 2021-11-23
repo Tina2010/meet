@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../css/NumberOfEvents.css';
 import {ErrorAlert} from './Alert';
 
 class NumberOfEvents extends Component {
