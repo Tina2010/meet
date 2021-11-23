@@ -8,6 +8,7 @@ import NumberOfEvents from './NumberOfEvents';
 import WelcomeScreen from './WelcomeScreen';
 import { getEvents, extractLocations, checkToken, getAccessToken } from '../api';
 import { ModalFooter } from 'react-bootstrap';
+import { WarningAlert } from './Alert';
 
 class App extends Component {
   state = {
@@ -61,11 +62,13 @@ class App extends Component {
 
   render() {
     if (this.state.showWelcomeScreen === undefined)
-      return <div className="App" />;
-      console.log(this.state.events, "events render")
+      return   
+      <div className="App"></div>;
+
     return (
       <div className="App">
         <h1>LetsMeet</h1>
+        { !navigator.onLine ? (<WarningAlert text='You are offline! The displayed data might not be up to date.' />) : (<WarningAlert text=' ' />)}
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEventCount={this.updateEventCount}/>
         <EventList events={this.state.events}/>
