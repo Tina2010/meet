@@ -25,15 +25,14 @@ class App extends Component {
     const isTokenValid = (await checkToken(accessToken)).error ? false : true;
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get("code");
-
     this.setState({ showWelcomeScreen: !(code || isTokenValid) });
-      if ((code || isTokenValid) && this.mounted) {
-        getEvents().then((events) => {
+    if ((code || isTokenValid) && this.mounted) {
+      getEvents().then((events) => {
         if (this.mounted) {
-            this.setState({ events, locations: extractLocations(events) });
-          }
-        })
-      }
+          this.setState({ events, locations: extractLocations(events) });
+        }
+      });
+    } 
   }
 
   updateEvents = (location) => {
@@ -62,13 +61,13 @@ class App extends Component {
 
   render() {
     if (this.state.showWelcomeScreen === undefined)
-      return   
-      <div className="App"></div>;
-
+    return <div className="App" />;
     return (
       <div className="App">
         <h1>LetsMeet</h1>
+        <div>
         { !navigator.onLine ? (<WarningAlert text='You are offline! The displayed data might not be up to date.' />) : (<WarningAlert text=' ' />)}
+        </div>
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEventCount={this.updateEventCount}/>
         <EventList events={this.state.events}/>
