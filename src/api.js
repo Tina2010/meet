@@ -2,6 +2,30 @@ import axios from 'axios';
 import NProgress from 'nprogress';
 import { mockData } from './mock-data';
 
+const removeQuery = () => {
+  if (window.history.pushState && window.location.pathname) {
+    var newurl =
+      window.location.protocol +
+      "//" +
+      window.location.host +
+      window.location.pathname;
+    window.history.pushState("", "", newurl);
+  } else {
+    newurl = window.location.protocol + "//" + window.location.host;
+    window.history.pushState("", "", newurl);
+  }
+};
+
+export const checkToken = async (accessToken) => {
+  const result = await fetch(
+    `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
+  )
+    .then((res) => res.json())
+    .catch((error) => error.json());
+
+  return result;
+};
+
 /**
  * @param {*} events:
  * The following function should be in the “api.js” file.
@@ -16,17 +40,7 @@ import { mockData } from './mock-data';
   return locations;
 };
 
-export const checkToken = async (accessToken) => {
-  const result = await fetch(
-    `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
-  )
-    .then((res) => res.json())
-    .catch((error) => error.json());
-
-  return result;
-};
-
-const getToken = async (code) => {
+export const getToken = async (code) => {
   const encodeCode = encodeURIComponent(code);
   const { access_token: accessToken } = await fetch(
     `https://b0vy91f8hf.execute-api.eu-central-1.amazonaws.com/dev/api/token/${encodeCode}`
@@ -56,7 +70,7 @@ export const getEvents = async () => {
 
   const token = await getAccessToken();
   if (token) {
-    //removeQuery();
+    removeQuery();
     const url = `https://b0vy91f8hf.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/${token}`;
 
     const result = await axios.get(url);
