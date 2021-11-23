@@ -6,3 +6,8 @@
     margin: auto;
     position: relative;
   }
+
+.CitySearch h5 {
+    text-align: center;
+    margin: 0;
+}

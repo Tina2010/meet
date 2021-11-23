@@ -28,7 +28,7 @@ class NumberOfEvents extends Component {
         return (
           <div style={{textAlign: '-webkit-center'}}>
             <div className="numberOfEvents">
-              <span style={{"paddingRight":"5px"}}>Select a number: </span>
+              <h5>Choose the number of events you want to see, from currently 32: </h5>
               <input 
                   type="number"
                   className="amountEventsOnePage"

@@ -40,6 +40,7 @@ class CitySearch extends Component {
         return (
           <div className="CitySearch">
             <InfoAlert text={this.state.infoText} />
+            <h5>Choose a location:</h5>
             <input
                 type="text"
                 className="city"

@@ -17,7 +17,7 @@
 }
 
 .visibleCardContent {
-  min-height: 100px;
+  min-height: 177px;
 }
 
 @media screen and (min-width:0px) and (max-width:450px) {
