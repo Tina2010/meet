@@ -57,7 +57,7 @@ input.amountEventsOnePage {
     z-index: 2;
     align-self: center;
     margin: 0;
-    top: 75px;
+    top: 82px;
     font-size: 14px;
     box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
   }
@@ -78,6 +78,7 @@ input.amountEventsOnePage {
     background-color: #bcdcdb;
   }
 
+  
 @media screen and (min-width:0px) and (max-width:270px) {
 
 }
