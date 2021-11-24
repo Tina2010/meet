@@ -6,6 +6,7 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import WelcomeScreen from './WelcomeScreen';
+import EventGenre from './EventGenre';
 import { 
   getEvents, 
   extractLocations, 
@@ -96,18 +97,20 @@ class App extends Component {
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEventCount={this.updateEventCount}/>
 
-        {/* pie chart */}
-        <h4>Events in each city</h4>
-        <ResponsiveContainer width="70%" aspect={3}>
-          <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="city" type="category" name="city"/>
-            <YAxis dataKey="number" type ="number" name="number" allowDecimals={false}/>
-            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-            <Legend />
-            <Scatter name=" " data={this.getData()} fill="#8884d8" />
-          </ScatterChart>
-        </ResponsiveContainer>
+        {/* charts */}
+        <div className="data-vis-wrapper">
+          <EventGenre events={this.state.events} />
+          <ResponsiveContainer width="99%" aspect={3}>
+            <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="city" type="category" name="city"/>
+              <YAxis dataKey="number" type ="number" name="number of events" allowDecimals={false}/>
+              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+              <Legend />
+              <Scatter name="Events per City" data={this.getData()} fill="black" />
+            </ScatterChart>
+          </ResponsiveContainer>
+        </div>
 
         <EventList events={this.state.events}/>
         <ModalFooter className="mt-5" style={{justifyContent: 'center'}}>

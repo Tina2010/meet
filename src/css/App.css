@@ -18,6 +18,12 @@ a:hover {
     box-sizing: border-box;
 }
 
+.data-vis-wrapper {
+    max-width: 100%;
+    display: flex;
+    flex-basis: max-content;
+}
+
 .list-group-item {
     border: none;
     align-self: center;
@@ -89,9 +95,13 @@ input.amountEventsOnePage {
 
   
 @media screen and (min-width:0px) and (max-width:270px) {
-
 }
 
 @media screen and (min-width:270px) and (max-width:450px) {
+}
 
+@media screen and (max-width:1000px) {
+    .data-vis-wrapper {
+        flex-direction: column;
+    }
 }
