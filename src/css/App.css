@@ -18,7 +18,7 @@ a:hover {
     box-sizing: border-box;
 }
 
-.data-vis-wrapper {
+.data-vis-wrapper, .data-vis-wrapper2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -122,19 +122,32 @@ button.accordion-button.collapsed {
         flex-direction: column;
         width: 100%;
     }
+
+    .data-vis-wrapper2 {
+        display: none;
+    }
 }
 
   @media screen and (min-width:400px) and (max-width:1000px) {
-    .data-vis-wrapper {
+    .data-vis-wrapper2 {
         display: flex;
         flex-direction: column;
         width: 100%;
     }
+
+    .accordion {
+        display: none;
+    }   
+
 }
 
 
 @media screen and (min-width:1000px) {
-    .data-vis-wrapper {
+    .data-vis-wrapper2 {
         width: 100%;
+    }
+
+    .accordion {
+        display: none;
     }
 }

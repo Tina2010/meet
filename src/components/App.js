@@ -98,8 +98,7 @@ class App extends Component {
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEventCount={this.updateEventCount}/>
 
-        {/* charts */}
-        { window.innerWidth < 500 ?
+        {/* charts */} 
         <Accordion flush>
         <div className="data-vis-wrapper">
             <AccordionItem eventKey="0">
@@ -125,8 +124,8 @@ class App extends Component {
           </AccordionItem>
         </div>
       </Accordion>
-        :
-          <div className="data-vis-wrapper">
+
+          <div className="data-vis-wrapper2">
             <EventGenre events={this.state.events} />
             <ResponsiveContainer width={'99%'} height={400}>
               <ScatterChart
@@ -139,7 +138,7 @@ class App extends Component {
               </ScatterChart>
             </ResponsiveContainer>
           </div>
-        }
+
 
         <EventList events={this.state.events}/>
         <ModalFooter className="mt-5" style={{justifyContent: 'center'}}>
