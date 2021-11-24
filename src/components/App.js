@@ -103,9 +103,9 @@ class App extends Component {
             <ScatterChart
             margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="city" type="category" name="city"/>
-              <YAxis dataKey="number" type ="number" name="number of events" allowDecimals={false}/>
-              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+              <XAxis dataKey="city" type="category" name="city" stroke="#145c5c"/>
+              <YAxis dataKey="number" type ="number" name="number of events" stroke="#145c5c" allowDecimals={false}/>
+              <Tooltip cursor={{ stroke: "red", strokeWidth: 2 }} />
               <Scatter name="Events per City" data={this.getData()} fill="black" />
             </ScatterChart>
           </ResponsiveContainer>

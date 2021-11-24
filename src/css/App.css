@@ -23,6 +23,15 @@ a:hover {
     grid-template-columns: 1fr 1fr;
 }
 
+line {
+    opacity: 0.4;;
+}
+
+line.recharts-cartesian-axis-line {
+    stroke:#145c5c;
+}
+
+
 .list-group-item {
     border: none;
     align-self: center;
