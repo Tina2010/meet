@@ -13,7 +13,7 @@ import {
   checkToken, 
   getAccessToken } 
   from '../api';
-import { ModalFooter } from 'react-bootstrap';
+import { Accordion, ModalFooter } from 'react-bootstrap';
 import { WarningAlert } from './Alert';
 import {
   ScatterChart, 
@@ -24,6 +24,8 @@ import {
   Tooltip,
   ResponsiveContainer} 
   from 'recharts';
+import AccordionItem from 'react-bootstrap/esm/AccordionItem';
+
 
 class App extends Component {
   state = {
@@ -97,19 +99,47 @@ class App extends Component {
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEventCount={this.updateEventCount}/>
 
         {/* charts */}
+        { window.innerWidth < 500 ?
+        <Accordion flush>
         <div className="data-vis-wrapper">
-          <EventGenre events={this.state.events} />
+            <AccordionItem eventKey="0">
+            <Accordion.Header>Percent of Eventgenres</Accordion.Header>
+              <Accordion.Body>
+              <EventGenre events={this.state.events} />
+              </Accordion.Body>
+            </AccordionItem>
+          <AccordionItem eventKey="1">
+          <Accordion.Header>Events per City</Accordion.Header>
+          <Accordion.Body>
           <ResponsiveContainer width={'99%'} height={400}>
             <ScatterChart
             margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="city" type="category" name="city" stroke="#145c5c"/>
               <YAxis dataKey="number" type ="number" name="number of events" stroke="#145c5c" allowDecimals={false}/>
-              <Tooltip cursor={{ stroke: "red", strokeWidth: 2 }} />
+              <Tooltip cursor={{ stroke: "#8c93dd", strokeWidth: 2 }} />
               <Scatter name="Events per City" data={this.getData()} fill="black" />
             </ScatterChart>
           </ResponsiveContainer>
+          </Accordion.Body>
+          </AccordionItem>
         </div>
+      </Accordion>
+        :
+          <div className="data-vis-wrapper">
+            <EventGenre events={this.state.events} />
+            <ResponsiveContainer width={'99%'} height={400}>
+              <ScatterChart
+              margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="city" type="category" name="city" stroke="#145c5c"/>
+                <YAxis dataKey="number" type ="number" name="number of events" stroke="#145c5c" allowDecimals={false}/>
+                <Tooltip cursor={{ stroke: "#8c93dd", strokeWidth: 2 }} />
+                <Scatter name="Events per City" data={this.getData()} fill="black" />
+              </ScatterChart>
+            </ResponsiveContainer>
+          </div>
+        }
 
         <EventList events={this.state.events}/>
         <ModalFooter className="mt-5" style={{justifyContent: 'center'}}>

@@ -101,6 +101,29 @@ input.amountEventsOnePage {
     background-color: #bcdcdb;
   }
 
+  .accordion {
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.accordion-body {
+    background-color: cadetblue;
+    border: 1px solid white;
+}
+
+button.accordion-button.collapsed {
+    color: white;
+    background-color: #145c5c;
+}
+
+  @media screen and (min-width: 0px) and (max-width:400px) {
+    .data-vis-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
   @media screen and (min-width:400px) and (max-width:1000px) {
     .data-vis-wrapper {
         display: flex;
