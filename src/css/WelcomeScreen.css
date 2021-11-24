@@ -16,7 +16,8 @@ b {
     position: fixed;
     background: cadetblue;
     text-align: center;
-    min-height: 400px;
+    height: 100%;
+    width: 100%;
 }
 
 .login-button {
@@ -62,3 +63,15 @@ b {
     box-shadow: 0 0 10px #2864c5;
 }
 
+.createGoogleAccount {
+    margin-top: 50px;
+}
+
+.createGoogleAccount a {
+    padding-left: 2px;
+    text-decoration: none;
+}
+
+.privacyPolice {
+    margin-top: 116px;
+}

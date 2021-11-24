@@ -1,5 +1,6 @@
 import React from "react";
 import '../css/WelcomeScreen.css';
+import { ModalFooter } from "react-bootstrap";
 
 function WelcomeScreen(props) {
     return props.showWelcomeScreen ?
@@ -29,13 +30,27 @@ function WelcomeScreen(props) {
                 </button>
             </div>
         </div>
-        <a
+
+        <div className="createGoogleAccount">
+            <p>You don´t have a Google account, but want to create one?<br></br>
+            Then feel free to create an account over 
+            <a href="https://accounts.google.com/signup/v2/webcreateaccount?hl=en&flowName=GlifWebSignIn&flowEntry=SignUp">here!</a>
+            </p>
+            
+        </div>
+        <div className="privacyPolice">
+        <a 
             href="https://Tina2010.github.io/meet/privacy.html"
             rel="nofollow noopener"
             style={{textDecoration: 'none'}}
             >
             Privacy policy
         </a>
+        </div>
+        <ModalFooter className="mt-1" style={{justifyContent: 'center'}}>
+          <p style={{color: 'white'}}>Feel free to visit my Portfolio:</p>
+          <a href="https://portfolio-tr.000webhostapp.com/" rel="noreferrer" style={{textDecoration: 'none'}} target="_blank">portfolio-tr.000webhostapp.com</a>
+          </ModalFooter>
     </div>
     )
     : null

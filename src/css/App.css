@@ -2,6 +2,15 @@ body {
     background-color: cadetblue;
 }
 
+a {
+    color: rgb(23, 71, 57);
+}
+
+a:hover {
+    color: white;
+    text-shadow: 5px 5px 5px #145c5c;
+}
+
 .App {
     display: grid;
     justify-items: center;
