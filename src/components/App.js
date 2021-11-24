@@ -21,8 +21,7 @@ import {
   YAxis, 
   Scatter, 
   CartesianGrid, 
-  Tooltip, 
-  Legend,
+  Tooltip,
   ResponsiveContainer} 
   from 'recharts';
 
@@ -100,13 +99,13 @@ class App extends Component {
         {/* charts */}
         <div className="data-vis-wrapper">
           <EventGenre events={this.state.events} />
-          <ResponsiveContainer width="99%" aspect={3}>
-            <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+          <ResponsiveContainer width={'99%'} height={400}>
+            <ScatterChart
+            margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="city" type="category" name="city"/>
               <YAxis dataKey="number" type ="number" name="number of events" allowDecimals={false}/>
               <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-              <Legend />
               <Scatter name="Events per City" data={this.getData()} fill="black" />
             </ScatterChart>
           </ResponsiveContainer>
@@ -117,7 +116,7 @@ class App extends Component {
           <p style={{color: 'white'}}>Feel free to visit my Portfolio:</p>
           <a href="https://portfolio-tr.000webhostapp.com/" rel="noreferrer" style={{textDecoration: 'none'}} target="_blank">portfolio-tr.000webhostapp.com</a>
           </ModalFooter>
-        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
+        {/* <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} /> */}
       </div>
     );
  }

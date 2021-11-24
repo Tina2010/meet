@@ -19,9 +19,8 @@ a:hover {
 }
 
 .data-vis-wrapper {
-    max-width: 100%;
-    display: flex;
-    flex-basis: max-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .list-group-item {
@@ -93,15 +92,17 @@ input.amountEventsOnePage {
     background-color: #bcdcdb;
   }
 
-  
-@media screen and (min-width:0px) and (max-width:270px) {
-}
-
-@media screen and (min-width:270px) and (max-width:450px) {
-}
-
-@media screen and (max-width:1000px) {
+  @media screen and (min-width:400px) and (max-width:1000px) {
     .data-vis-wrapper {
+        display: flex;
         flex-direction: column;
+        width: 100%;
+    }
+}
+
+
+@media screen and (min-width:1000px) {
+    .data-vis-wrapper {
+        width: 100%;
     }
 }
