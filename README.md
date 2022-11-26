@@ -1,3 +1,5 @@
+Archived project: This project will not be maintained anymore.
+
 ## Project description:
 
 In this project, I will create an app where you will preview upcoming events.
